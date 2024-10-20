@@ -1,1 +1,52 @@
+# Importação das bibliotecas necessárias
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import confusion_matrix
+
+# Carregar os dados
+df = pd.read_csv('bike_buyers(2).csv')
+
+# Remover as colunas 'ID', 'Education', 'Occupation', 'Home Owner'
+df.drop(columns=['ID', 'Education', 'Occupation', 'Home Owner'], inplace=True)
+
+# Verificar valores ausentes
+print("\nVerificação de valores ausentes por coluna:")
+print(df.isnull().sum())
+
+# Preencher valores ausentes (se houver) com a mediana (para colunas numéricas)
+df.fillna(df.median(numeric_only=True), inplace=True)
+
+# Alterar tipo de dado da coluna 'Purchased Bike' para booleano
+df['Purchased Bike'] = df['Purchased Bike'].apply(lambda x: True if x == 'Yes' else False)
+
+# Alterar tipo de dado da coluna 'Annual Income' para float
+df['Income'] = df['Income'].astype(float)
+
+# Manter os valores originais para visualização
+df_visual = df.copy()
+
+# Normalizar as colunas numéricas com StandardScaler (apenas para modelagem)
+scaler = StandardScaler()
+df_scaled = pd.DataFrame(scaler.fit_transform(df[['Income', 'Children', 'Cars', 'Age']]),
+                         columns=['Income', 'Children', 'Cars', 'Age'])
+
+# Substituir as colunas normalizadas no DataFrame original (apenas para modelagem)
+df[['Income', 'Children', 'Cars', 'Age']] = df_scaled
+
+# Separar dados em treino e teste
+X = df.drop(columns='Purchased Bike')  # Features (ajustado para a coluna 'Purchased Bike')
+y = df['Purchased Bike']  # Target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Exibir as dimensões dos conjuntos de treino e teste
+print(f"Dimensões do conjunto de treino: {X_train.shape}")
+print(f"Dimensões do conjunto de teste: {X_test.shape}")
+
+# Exibir DataFrame original para visualização (com valores reais)
+df_visual.head()
+
 
