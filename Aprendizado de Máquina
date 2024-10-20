@@ -49,4 +49,379 @@ print(f"Dimensões do conjunto de teste: {X_test.shape}")
 # Exibir DataFrame original para visualização (com valores reais)
 df_visual.head()
 
+import numpy as np
+import matplotlib.pyplot as plt
 
+# Definindo as faixas etárias e seus valores
+x_trein = np.array([27.5, 35.5, 50, 65])  # Ponto médio das faixas etárias para o eixo X
+y_trein = np.array([38, 191, 212, 36])    # Quantidade de bicicletas compradas para cada faixa
+
+# Função para calcular o custo
+def calcula_custo(x, y, w, b):
+    m = x.shape[0]
+    soma_custo = 0
+    for i in range(m):
+        f_wb = w * x[i] + b
+        custo = (f_wb - y[i]) ** 2
+        soma_custo += custo
+    custo_total = (1 / (2 * m)) * soma_custo
+    return custo_total
+
+# Número de pontos
+N = len(x_trein)
+
+# Cálculos para a regressão linear
+sum_x = np.sum(x_trein)
+sum_y = np.sum(y_trein)
+sum_xy = np.sum(x_trein * y_trein)
+sum_x2 = np.sum(x_trein ** 2)
+
+# Cálculo do peso (w)
+w = (N * sum_xy - sum_x * sum_y) / (N * sum_x2 - sum_x ** 2)
+print("Peso (w):", w)
+
+# Cálculo do viés (b)
+b = (sum_y - w * sum_x) / N
+print("Viés (b):", b)
+
+# Calculando a tensão estimada para o modelo
+m = x_trein.shape[0]
+f_wb = np.zeros(m)
+for i in range(m):
+    f_wb[i] = w * x_trein[i] + b
+
+# Cálculo do custo
+J = calcula_custo(x_trein, y_trein, w, b)
+print("Custo (J):", J)
+
+# Plotando os dados como um gráfico de barras
+plt.figure(figsize=(10, 6))
+plt.bar(['25-30', '31-40', '41-59', 'Acima de 60'], y_trein, color='lightblue', edgecolor='black', label='Valores reais')
+
+# Plotando a linha de regressão sobre as barras
+plt.plot(['25-30', '31-40', '41-59', 'Acima de 60'], f_wb, color='darkorange', label='Linha de Regressão', marker='o', linewidth=2)
+
+# Adicionando rótulos aos pontos da linha de regressão
+for i in range(m):
+    plt.text(i, f_wb[i] + 5, f'{int(f_wb[i])}', ha='center', fontsize=10, color='darkorange')
+
+# Ajustando o rótulo do eixo y
+plt.ylabel('Quantidade de Bicicletas Compradas', fontsize=12)
+# Ajustando o rótulo do eixo x
+plt.xlabel('Faixa Etária', fontsize=12)
+plt.title('Regressão Linear da Quantidade de Bicicletas Compradas por Faixa Etária', fontsize=14, fontweight='bold')
+plt.legend()
+
+# Melhorando a grade do gráfico
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Exibir o gráfico
+plt.tight_layout()
+plt.show()
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definindo as faixas etárias e seus valores
+x_trein = np.array([27.5, 35.5, 50, 65])  # Ponto médio das faixas etárias
+y_trein = np.array([38, 191, 212, 36])    # Quantidade de bicicletas compradas para cada faixa
+
+# Função para calcular o custo
+def calcula_custo(x, y, w, b):
+    m = x.shape[0]
+    soma_custo = 0
+    for i in range(m):
+        f_wb = w * x[i] + b
+        custo = (f_wb - y[i]) ** 2
+        soma_custo += custo
+    custo_total = (1 / (2 * m)) * soma_custo
+    return custo_total
+
+# Número de pontos
+N = len(x_trein)
+
+# Cálculos para a regressão linear
+sum_x = np.sum(x_trein)
+sum_y = np.sum(y_trein)
+sum_xy = np.sum(x_trein * y_trein)
+sum_x2 = np.sum(x_trein ** 2)
+
+# Cálculo do peso (w)
+w = (N * sum_xy - sum_x * sum_y) / (N * sum_x2 - sum_x ** 2)
+print("Peso (w):", w)
+
+# Cálculo do viés (b)
+b = (sum_y - w * sum_x) / N
+print("Viés (b):", b)
+
+# Calculando a linha estimada para o modelo
+f_wb = w * x_trein + b
+
+# Configurando o gráfico
+plt.figure(figsize=(10, 6))
+
+# Plotando os dados observados (pontos vermelhos)
+plt.scatter(x_trein, y_trein, color='red', marker='o', s=100, label='Dados Observados')
+
+# Plotando a linha de regressão
+plt.plot(x_trein, f_wb, color='blue', label='Regressão Linear', linewidth=2)
+
+# Ajustando o rótulo do eixo y
+plt.ylabel('Quantidade de Bicicletas Compradas', fontsize=12)
+
+# Ajustando o rótulo do eixo x
+plt.xlabel('Idade Média da Faixa Etária', fontsize=12)
+
+# Colocando um título informativo
+plt.title('Regressão Linear: Quantidade de Bicicletas Compradas por Faixa Etária', fontsize=14, fontweight='bold')
+
+# Colocando uma legenda
+plt.legend()
+
+# Melhorando a grade do gráfico
+plt.grid(True, linestyle='--', alpha=0.7)
+
+# Ajuste do layout
+plt.tight_layout()
+
+# Exibir o gráfico
+plt.show()
+
+# MATPLOT DAS COMPRAS DAS BICICLETAS
+import matplotlib.pyplot as plt
+
+# Calcula a quantidade de compradores e não compradores
+purchased_count = df['Purchased Bike'].sum()
+not_purchased_count = len(df) - purchased_count
+
+# Define os dados para o gráfico de pizza
+numbers = [purchased_count, not_purchased_count]
+labels = ["Bicicletas compradas", "Bicicletas não compradas"]
+colors = ["#2ca02c", "#d62728"]  # Usando cores mais agradáveis
+explode = (0.05, 0)  # Destacando a fatia "Purchased Bike"
+
+# Cria o gráfico de pizza com configurações aprimoradas
+plt.figure(figsize=(6, 6))  # Ajustando o tamanho da figura
+plt.pie(numbers, labels=labels, autopct='%1.1f%%', colors=colors,
+        explode=explode, shadow=True, startangle=90, textprops={'fontsize': 12})
+
+# Adiciona um título informativo
+plt.title("Proporção de Compradores de Bicicletas", fontsize=14)
+
+# Centraliza o gráfico
+plt.axis('equal')
+
+# Exibe o gráfico
+plt.show()
+
+import pandas as pd
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+# Supondo que df_visual já existe
+# Cria uma nova coluna 'Marital Status Categorized' para incluir "Não Informado"
+df_visual['Marital Status Categorized'] = df_visual['Marital Status'].fillna('Não Informado')
+
+# Agrupa os dados por 'Marital Status Categorized' e obtém a contagem
+marital_status_counts = df_visual.groupby('Marital Status Categorized').size()
+
+# Renomeia as categorias
+marital_status_counts.index = marital_status_counts.index.map({
+    'Single': 'Solteiro(a)',
+    'Married': 'Casado(a)',
+    'Não Informado': 'Não Informado'
+})
+
+# Configurações do gráfico
+plt.figure(figsize=(8, 6))
+colors = sns.color_palette('pastel', n_colors=len(marital_status_counts))
+
+# Cria o gráfico de barras
+bars = plt.bar(marital_status_counts.index, marital_status_counts.values, color=colors)
+
+# Adiciona título e rótulos aos eixos
+plt.title('Distribuição de Status Marital', fontsize=16, fontweight='bold')
+plt.xlabel('Status Marital', fontsize=12)
+plt.ylabel('Número de Pessoas', fontsize=12)
+
+# Adiciona os valores nas barras
+for i, value in enumerate(marital_status_counts.values):
+    plt.text(i, value + 0.5, str(value), ha='center', fontsize=10, color='black')
+
+# Remove os spines superiores e direito
+plt.gca().spines[['top', 'right']].set_visible(False)
+
+# Ajusta o layout
+plt.tight_layout()
+plt.show()
+
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+# Configurações do gráfico
+plt.figure(figsize=(10, 6))
+
+# Cria o histograma
+sns.histplot(df_visual['Age'], bins=20, kde=True, color='skyblue', edgecolor='black', alpha=0.7)
+
+# Adiciona título e rótulos aos eixos
+plt.title('Distribuição de Idade dos Compradores', fontsize=16, fontweight='bold')
+plt.xlabel('Idade', fontsize=12)
+plt.ylabel('Frequência', fontsize=12)
+
+# Adiciona a linha da densidade de Kernel (KDE)
+plt.axvline(df_visual['Age'].mean(), color='red', linestyle='dashed', linewidth=1.5, label='Média: {:.1f}'.format(df_visual['Age'].mean()))
+
+# Adiciona a legenda
+plt.legend()
+
+# Remove os spines superiores e direito
+plt.gca().spines[['top', 'right']].set_visible(False)
+
+# Ajusta o layout
+plt.tight_layout()
+plt.show()
+
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+# Configurações do gráfico
+plt.figure(figsize=(10, 6))
+
+# Cria o histograma com Seaborn
+sns.histplot(df_visual['Income'], bins=20, kde=True, color='lightgreen', edgecolor='black', alpha=0.7)
+
+# Adiciona título e rótulos aos eixos
+plt.title('Distribuição de Renda dos Compradores', fontsize=16, fontweight='bold')
+plt.xlabel('Renda', fontsize=12)
+plt.ylabel('Frequência', fontsize=12)
+
+# Adiciona a linha da densidade de Kernel (KDE)
+plt.axvline(df_visual['Income'].mean(), color='red', linestyle='dashed', linewidth=1.5, label='Média: {:.2f}'.format(df_visual['Income'].mean()))
+
+# Adiciona a legenda
+plt.legend()
+
+# Remove os spines superiores e direito
+plt.gca().spines[['top', 'right']].set_visible(False)
+
+# Ajusta o layout
+plt.tight_layout()
+plt.show()
+
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+# Configurações do gráfico
+plt.figure(figsize=(10, 6))
+
+# Cria o histograma com Seaborn
+sns.histplot(df_visual['Cars'], bins=20, kde=True, color='coral', edgecolor='black', alpha=0.7)
+
+# Adiciona título e rótulos aos eixos
+plt.title('Distribuição da Quantidade de Carros', fontsize=16, fontweight='bold')
+plt.xlabel('Quantidade de Carros', fontsize=12)
+plt.ylabel('Frequência', fontsize=12)
+
+# Adiciona a linha da densidade de Kernel (KDE)
+plt.axvline(df_visual['Cars'].mean(), color='blue', linestyle='dashed', linewidth=1.5, label='Média: {:.2f}'.format(df_visual['Cars'].mean()))
+
+# Adiciona a legenda
+plt.legend()
+
+# Remove os spines superiores e direito
+plt.gca().spines[['top', 'right']].set_visible(False)
+
+# Ajusta o layout
+plt.tight_layout()
+plt.show()
+
+import pandas as pd
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+# Supondo que df_visual já existe
+# Cria uma nova coluna 'Gender Categorized' para incluir "Não Informado"
+df_visual['Gender Categorized'] = df_visual['Gender'].fillna('Não Informado')
+
+# Agrupa os dados por 'Gender Categorized' e obtém a contagem
+gender_counts = df_visual.groupby('Gender Categorized').size()
+
+# Configurações do gráfico
+plt.figure(figsize=(8, 6))
+colors = sns.color_palette('Dark2', n_colors=len(gender_counts))
+
+# Cria o gráfico de barras com os nomes alterados
+bars = plt.barh(gender_counts.index.map({'Male': 'Masculino', 'Female': 'Feminino', 'Não Informado': 'Não Informado'}),
+                gender_counts.values, color=colors)
+
+# Adiciona título e rótulos aos eixos
+plt.title('Distribuição de Gêneros', fontsize=16, fontweight='bold')
+plt.xlabel('Quantidade', fontsize=12)
+plt.ylabel('Gênero', fontsize=12)
+
+# Adiciona os valores nas barras
+for bar in bars:
+    plt.text(bar.get_width(), bar.get_y() + bar.get_height()/2,
+             f'{bar.get_width()}',
+             va='center', ha='left', fontsize=10, color='black')
+
+# Remove os spines superiores e direito
+plt.gca().spines[['top', 'right']].set_visible(False)
+
+# Ajusta o layout
+plt.tight_layout()
+plt.show()
+
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+# Agrupa os dados por 'Region' e obtém a contagem
+region_counts = df_visual.groupby('Region').size()
+
+# Configurações do gráfico
+plt.figure(figsize=(8, 8))
+colors = sns.color_palette('pastel', n_colors=len(region_counts))
+
+# Cria o gráfico de pizza
+plt.pie(region_counts, labels=region_counts.index.map({
+    'North America': 'América do Norte',
+    'Europe': 'Europa',
+    'Pacific': 'Pacífico'
+}),
+        colors=colors, autopct='%1.1f%%', startangle=140, explode=(0.1, 0, 0), shadow=True)
+
+# Adiciona um título
+plt.title('Distribuição por Regiões', fontsize=16, fontweight='bold')
+
+# Mostra o gráfico
+plt.axis('equal')  # Garante que o gráfico seja um círculo
+plt.tight_layout()  # Ajusta o layout
+plt.show()
+
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+# Configurações do gráfico
+plt.figure(figsize=(10, 6))
+
+# Cria o histograma com Seaborn
+sns.histplot(df_visual['Children'], bins=20, kde=True, color='lightblue', edgecolor='black', alpha=0.7)
+
+# Adiciona título e rótulos aos eixos
+plt.title('Distribuição da Quantidade de Filhos', fontsize=16, fontweight='bold')
+plt.xlabel('Quantidade de Filhos', fontsize=12)
+plt.ylabel('Frequência', fontsize=12)
+
+# Adiciona a linha da densidade de Kernel (KDE)
+plt.axvline(df_visual['Children'].mean(), color='red', linestyle='dashed', linewidth=1.5, label='Média: {:.2f}'.format(df_visual['Children'].mean()))
+
+# Adiciona a legenda
+plt.legend()
+
+# Remove os spines superiores e direito
+plt.gca().spines[['top', 'right']].set_visible(False)
+
+# Ajusta o layout
+plt.tight_layout()
+plt.show()
