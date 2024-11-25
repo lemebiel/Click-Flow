@@ -1,1 +1,87 @@
+## Segurança da Informação
+
+### Medidas Implementadas
+1. **Política de Senhas Fortes**
+   - Senhas devem conter letras maiúsculas, minúsculas, números e caracteres especiais.
+   - Mínimo de 12 caracteres.
+   - Alteração obrigatória a cada 90 dias.
+
+2. **Autenticação de Dois Fatores (2FA)**
+   - Camada adicional de segurança para acesso ao sistema.
+   - Principalmente para administradores e gerentes.
+
+3. **Controle de Acesso Baseado em Função (RBAC)**
+   - Permissões limitadas com base nas funções do usuário.
+   - Apenas o acesso necessário para as atividades será concedido.
+
+4. **Princípio de Menor Privilégio**
+   - Restrições de acesso apenas ao necessário para as funções do usuário.
+   - Privilegios administrativos concedidos apenas quando essencial.
+
+5. **Revalidação Periódica de Acesso**
+   - Revisões de permissões realizadas a cada seis meses.
+   - Garantia de alinhamento com as funções atuais.
+
+6. **Registro de Logs de Acesso**
+   - Monitoramento de acessos aos sistemas e dados.
+   - Inclui informações como horário, usuário, recurso acessado e ações realizadas.
+
+7. **Controle de Acesso Físico**
+   - Restrição ao local de servidores e sistemas críticos.
+   - Uso de cartões de acesso e sistemas de vigilância.
+
+8. **Bloqueio Automático de Sessões Inativas**
+   - Bloqueio após 15 minutos de inatividade.
+   - Exige novo login para retomada.
+
+9. **Acesso Remoto Seguro**
+   - Permissão apenas via redes seguras e VPNs.
+   - Autenticação em duas etapas para acesso remoto.
+
+10. **Acesso Temporário**
+    - Validade limitada para acessos temporários, com revogação automática.
+
+11. **Criptografia de Dados Sensíveis**
+    - Proteção de informações como dados de clientes e pagamentos.
+    - Acesso restrito e uso de criptografia robusta.
+
+12. **Treinamento de Segurança**
+    - Treinamentos periódicos para conscientização sobre práticas de segurança.
+
+13. **Gestão de Senhas de Sistemas Críticos**
+    - Armazenamento em gerenciadores de senha seguros.
+    - Trocas imediatas após mudanças de pessoal.
+
+14. **Monitoramento de Acessos**
+    - Auditoria regular dos registros para identificar comportamentos suspeitos.
+
+### Medidas de Detecção e Prevenção de Ataques
+1. **IDS/IPS (Sistemas de Detecção e Prevenção de Intrusões)**
+   - Monitoramento em tempo real da rede para identificar e prevenir ataques.
+
+2. **Firewall de Próxima Geração (NGFW)**
+   - Combinação de firewall tradicional com inspeção profunda de pacotes.
+
+3. **Segmentação de Rede**
+   - Divisão em zonas para limitar acessos e conter possíveis invasores.
+
+4. **Análise de Comportamento de Rede (NBA)**
+   - Identificação de anomalias, como grandes transferências de dados fora do padrão.
+
+5. **SIEM (Sistema de Monitoramento de Logs)**
+   - Centralização e análise de logs para emitir alertas sobre padrões suspeitos.
+
+6. **Testes de Penetração Regular**
+   - Identificação e correção de vulnerabilidades antes que sejam exploradas.
+
+7. **Honeypots**
+   - Armadilhas configuradas para atrair e analisar atividades de invasores.
+
+8. **Atualizações Automáticas**
+   - Garantia de que todos os sistemas estejam protegidos contra vulnerabilidades conhecidas.
+
+---
+
+Essas medidas garantem que os dados e sistemas da empresa estejam protegidos contra ameaças internas e externas, promovendo um ambiente seguro para operações e clientes.
+
 
