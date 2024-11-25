@@ -1,5 +1,3 @@
-## Segurança da Informação
-
 ### Entrega 1: Implementação de Medidas de Segurança
 
 1. **Política de Senhas Fortes**
@@ -97,3 +95,33 @@
 
 - **Atualizações Automáticas e Gerenciamento de Patches**
   - Configure atualizações automáticas e um processo de gerenciamento de patches para garantir que todos os sistemas estejam protegidos contra as últimas ameaças conhecidas e vulnerabilidades.
+
+## Entrega 2: Matriz GUT
+
+
+| **Problema/Ação**                            | **Gravidade (G)** | **Urgência (U)** | **Tendência (T)** | **G x U x T** | **Justificativa**                                                                 |
+|---------------------------------------------|-------------------|------------------|-------------------|---------------|-----------------------------------------------------------------------------------|
+| Falta de controle de inventário             | 5                 | 4                | 4                 | 80            | Pode causar falta de produtos para venda, perda de vendas e aumento de custos.    |
+| Atendimento ao cliente insatisfatório       | 4                 | 5                | 4                 | 80            | Clientes insatisfeitos podem migrar para concorrentes, impactando vendas e imagem.|
+| Problemas de segurança nos dados dos clientes| 5                 | 5                | 5                 | 125           | Exposição de dados pode levar a prejuízos financeiros e danos à reputação.        |
+| Ausência de política de devolução           | 3                 | 3                | 3                 | 27            | Pode gerar insatisfação entre clientes, mas tem impacto menor que outros problemas.|
+| Falhas na manutenção preventiva dos equipamentos| 4              | 4                | 3                 | 48            | Equipamentos sem manutenção podem gerar custos adicionais e comprometer serviços. |
+| Marketing insuficiente para alcançar novos clientes| 3           | 4                | 4                 | 48            | A falta de marketing reduz alcance e atração de novos clientes, afetando o crescimento. |
+| Falta de treinamento para equipe de vendas  | 4                 | 4                | 4                 | 64            | Sem treinamento adequado, a equipe pode ter baixo desempenho, impactando vendas.  |
+| Sistema de controle de estoque ineficaz     | 4                 | 3                | 4                 | 48            | Pode levar a compras desnecessárias e falta de itens importantes.                 |
+| Atraso no atendimento de pedidos online     | 4                 | 5                | 5                 | 100           | Afeta experiência do cliente e confiabilidade do e-commerce.                      |
+| Dificuldade em obter feedback dos clientes  | 3                 | 3                | 3                 | 27            | Limita capacidade de melhorar o serviço, mas tem impacto menor que outros problemas.|
+
+### Explicação dos Principais Problemas
+
+1. **Problemas de segurança nos dados dos clientes (125 pontos):**
+   - Este é o problema mais crítico. Exposição de dados pode causar multas, prejuízos financeiros e danos à imagem da empresa.
+
+2. **Atraso no atendimento de pedidos online (100 pontos):**
+   - Afeta diretamente a satisfação e confiança dos clientes, prejudicando a estratégia de vendas online.
+
+3. **Falta de controle de inventário e atendimento ao cliente insatisfatório (80 pontos cada):**
+   - Inventário desorganizado pode causar perdas financeiras. Atendimento ruim compromete a fidelidade e satisfação dos clientes.
+
+
+
