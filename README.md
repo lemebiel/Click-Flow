@@ -4,12 +4,11 @@
 **ClickFlow**
 
 ## Ramo da Empresa
-Loja de bicicletas e soluções tecnológicas para e-commerce.
+Loja de bicicletas com soluções tecnológicas
 
 ## Serviços e Tecnologias
 A ClickFlow oferecerá:
 - **Venda de bicicletas:** Modelos variados, atendendo desde iniciantes até ciclistas profissionais.
-- **Serviços de manutenção:** Reparos, revisões e customização de bicicletas.
 - **E-commerce:** Plataforma online para a compra de bicicletas, acessórios e serviços.
 - **Tecnologias utilizadas:**
   - **Machine Learning:** Para análise de comportamento do cliente e recomendações personalizadas.
