@@ -1,87 +1,99 @@
 ## Segurança da Informação
 
-### Medidas Implementadas
+### Entrega 1: Implementação de Medidas de Segurança
+
 1. **Política de Senhas Fortes**
-   - Senhas devem conter letras maiúsculas, minúsculas, números e caracteres especiais.
-   - Mínimo de 12 caracteres.
-   - Alteração obrigatória a cada 90 dias.
+   - Todos os usuários devem criar senhas fortes que incluem uma combinação de letras maiúsculas, minúsculas, números e caracteres especiais.
+   - A senha deve ter, no mínimo, 12 caracteres e ser alterada a cada 90 dias.
 
-2. **Autenticação de Dois Fatores (2FA)**
-   - Camada adicional de segurança para acesso ao sistema.
-   - Principalmente para administradores e gerentes.
+2. **Política de Autenticação de Dois Fatores (2FA)**
+   - A autenticação de dois fatores deve ser habilitada para o acesso ao sistema, especialmente para contas de administradores e gerentes, garantindo uma camada extra de segurança.
 
-3. **Controle de Acesso Baseado em Função (RBAC)**
-   - Permissões limitadas com base nas funções do usuário.
-   - Apenas o acesso necessário para as atividades será concedido.
+3. **Política de Acesso Baseado em Função (RBAC)**
+   - O acesso aos sistemas e dados deve ser limitado com base nas funções dos usuários.
+   - Apenas o mínimo de permissões necessárias para executar as atividades deve ser concedido.
 
-4. **Princípio de Menor Privilégio**
-   - Restrições de acesso apenas ao necessário para as funções do usuário.
-   - Privilegios administrativos concedidos apenas quando essencial.
+4. **Política de Princípio de Menor Privilégio**
+   - Todos os usuários devem ter acesso apenas aos dados e sistemas necessários para o desempenho de suas tarefas, restringindo privilégios administrativos ao mínimo.
 
-5. **Revalidação Periódica de Acesso**
-   - Revisões de permissões realizadas a cada seis meses.
-   - Garantia de alinhamento com as funções atuais.
+5. **Política de Revalidação Periódica de Acesso**
+   - Revisões de acesso devem ser realizadas a cada seis meses para garantir que as permissões de acesso de cada usuário estejam atualizadas com base em suas funções atuais.
 
-6. **Registro de Logs de Acesso**
-   - Monitoramento de acessos aos sistemas e dados.
-   - Inclui informações como horário, usuário, recurso acessado e ações realizadas.
+6. **Política de Log de Acesso**
+   - Todos os acessos aos sistemas e dados devem ser registrados em logs, incluindo informações como horário, usuário, recurso acessado e ações realizadas, para fins de auditoria e monitoramento.
 
-7. **Controle de Acesso Físico**
-   - Restrição ao local de servidores e sistemas críticos.
-   - Uso de cartões de acesso e sistemas de vigilância.
+7. **Política de Controle de Acesso Físico**
+   - O acesso físico ao local onde os sistemas e servidores são mantidos deve ser restrito a pessoal autorizado, com uso de controles de entrada, como cartões de acesso.
 
-8. **Bloqueio Automático de Sessões Inativas**
-   - Bloqueio após 15 minutos de inatividade.
-   - Exige novo login para retomada.
+8. **Política de Bloqueio Automático de Sessões Inativas**
+   - As sessões de usuários inativas por mais de 15 minutos devem ser automaticamente bloqueadas, exigindo que o usuário faça login novamente para continuar.
 
-9. **Acesso Remoto Seguro**
-   - Permissão apenas via redes seguras e VPNs.
-   - Autenticação em duas etapas para acesso remoto.
+9. **Política de Acesso Remoto Seguro**
+   - O acesso remoto ao sistema só deve ser permitido por meio de redes seguras e VPNs (Redes Privadas Virtuais), com autenticação 2FA para aumentar a segurança.
 
-10. **Acesso Temporário**
-    - Validade limitada para acessos temporários, com revogação automática.
+10. **Política de Acesso Temporário**
+    - Qualquer acesso temporário para realização de tarefas específicas deve ter uma data de expiração, após a qual o acesso é automaticamente revogado.
 
-11. **Criptografia de Dados Sensíveis**
-    - Proteção de informações como dados de clientes e pagamentos.
-    - Acesso restrito e uso de criptografia robusta.
+11. **Política de Controle de Acesso a Dados Sensíveis**
+    - O acesso a dados sensíveis, como informações de clientes e de pagamento, deve ser restrito a pessoal autorizado, e esses dados devem estar criptografados.
 
-12. **Treinamento de Segurança**
-    - Treinamentos periódicos para conscientização sobre práticas de segurança.
+12. **Política de Treinamento de Segurança de Acesso**
+    - Todos os funcionários devem passar por treinamentos periódicos sobre práticas de segurança e políticas de controle de acesso, para conscientização e prevenção de incidentes.
 
-13. **Gestão de Senhas de Sistemas Críticos**
-    - Armazenamento em gerenciadores de senha seguros.
-    - Trocas imediatas após mudanças de pessoal.
+13. **Política de Gestão de Senhas de Sistemas Críticos**
+    - Senhas de sistemas críticos devem ser armazenadas em gerenciadores de senha seguros e devem ser trocadas imediatamente após qualquer alteração de pessoal.
 
-14. **Monitoramento de Acessos**
-    - Auditoria regular dos registros para identificar comportamentos suspeitos.
+14. **Política de Requisição de Acesso**
+    - Novos acessos devem ser solicitados e justificados por meio de um formulário formal, com aprovação de um supervisor.
 
-### Medidas de Detecção e Prevenção de Ataques
-1. **IDS/IPS (Sistemas de Detecção e Prevenção de Intrusões)**
-   - Monitoramento em tempo real da rede para identificar e prevenir ataques.
+15. **Política de Revogação de Acesso**
+    - O acesso aos sistemas e dados de funcionários deve ser imediatamente revogado no caso de desligamento, mudança de função ou transferência.
 
-2. **Firewall de Próxima Geração (NGFW)**
-   - Combinação de firewall tradicional com inspeção profunda de pacotes.
+16. **Política de Controle de Dispositivos Pessoais**
+    - O uso de dispositivos pessoais para acesso aos sistemas da empresa deve ser evitado ou monitorado. Caso seja permitido, os dispositivos devem seguir padrões de segurança da empresa.
 
-3. **Segmentação de Rede**
-   - Divisão em zonas para limitar acessos e conter possíveis invasores.
+17. **Política de Controle de Acesso de Fornecedores e Terceiros**
+    - Fornecedores e terceiros que necessitem de acesso aos sistemas devem ter acessos restritos e monitorados, e apenas durante o tempo necessário para realizar suas atividades.
 
-4. **Análise de Comportamento de Rede (NBA)**
-   - Identificação de anomalias, como grandes transferências de dados fora do padrão.
+18. **Política de Monitoramento e Auditoria de Acesso**
+    - Os registros de acesso devem ser revisados periodicamente para identificar e corrigir quaisquer acessos indevidos ou comportamentos suspeitos.
 
-5. **SIEM (Sistema de Monitoramento de Logs)**
-   - Centralização e análise de logs para emitir alertas sobre padrões suspeitos.
+19. **Política de Proteção Contra Engenharia Social**
+    - Orientar os funcionários sobre os riscos de engenharia social e phishing, enfatizando a importância de não divulgar informações de acesso ou detalhes de segurança a pessoas não autorizadas.
 
-6. **Testes de Penetração Regular**
-   - Identificação e correção de vulnerabilidades antes que sejam exploradas.
-
-7. **Honeypots**
-   - Armadilhas configuradas para atrair e analisar atividades de invasores.
-
-8. **Atualizações Automáticas**
-   - Garantia de que todos os sistemas estejam protegidos contra vulnerabilidades conhecidas.
+20. **Política de Reporte de Acessos Suspeitos**
+    - Os funcionários devem ter um canal de comunicação para relatar qualquer tentativa de acesso suspeita ou comportamento anômalo nos sistemas, incentivando o reporte imediato.
 
 ---
 
-Essas medidas garantem que os dados e sistemas da empresa estejam protegidos contra ameaças internas e externas, promovendo um ambiente seguro para operações e clientes.
+### Medidas de Detecção e Prevenção de Ataques
 
+- **Instalação de um Sistema IDS/IPS**
+  - Configure um sistema IDS/IPS como o Snort, Suricata ou Zeek para monitorar a rede em tempo real, detectando e prevenindo ataques com base em assinaturas e comportamentos suspeitos.
 
+- **Firewall de Próxima Geração (NGFW)**
+  - Utilize um firewall de próxima geração que combine funções de firewall tradicionais com capacidades de inspeção profunda de pacotes e detecção de ameaças, oferecendo maior proteção contra ataques complexos.
+
+- **Monitoramento e Bloqueio de IPs Suspeitos**
+  - Configure listas de bloqueio para impedir o acesso de endereços IP conhecidos por atividades maliciosas. Ferramentas como IDS/IPS e firewalls podem ser programadas para bloquear automaticamente esses IPs.
+
+- **Análise de Comportamento de Rede (NBA)**
+  - Implante sistemas de análise de comportamento de rede que detectem anomalias de tráfego. Essa tecnologia permite identificar comportamentos atípicos, como grandes transferências de dados fora do horário comercial, o que pode indicar um possível ataque.
+
+- **Segmentação de Rede**
+  - Divida a rede em segmentos (zonas) para limitar o acesso a dados sensíveis. A segmentação de rede impede que, caso um invasor acesse uma área, ele comprometa o restante da rede.
+
+- **Sistema de Monitoramento de Logs (SIEM)**
+  - Use um sistema de monitoramento de eventos e informações de segurança (SIEM), como Splunk ou ELK Stack, que centraliza e analisa logs para detectar padrões de ataque em eventos passados e emitir alertas.
+
+- **Autenticação de Dois Fatores (2FA)**
+  - Configure autenticação de dois fatores para acesso aos sistemas críticos e à rede, exigindo que funcionários usem um segundo fator de autenticação além da senha, dificultando invasões com credenciais roubadas.
+
+- **Teste de Penetração Regular**
+  - Realize testes de penetração periódicos para identificar vulnerabilidades na rede e nos sistemas, corrigindo falhas que possam ser exploradas por invasores.
+
+- **Configuração de Honeypots**
+  - Instale honeypots em áreas não críticas da rede para atrair e monitorar possíveis invasores. Essas armadilhas permitem identificar e analisar táticas de ataque usadas para melhorar as defesas.
+
+- **Atualizações Automáticas e Gerenciamento de Patches**
+  - Configure atualizações automáticas e um processo de gerenciamento de patches para garantir que todos os sistemas estejam protegidos contra as últimas ameaças conhecidas e vulnerabilidades.
